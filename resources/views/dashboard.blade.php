@@ -87,10 +87,10 @@
                             </div>
                             <div class="row-2">
                                 <p class="indicator-order">201</p>
-                                <p class="chance-order">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
+                                <p class="chance-order trending-up">
+                                    <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-trending-up-icon lucide-trending-up">
                                         <path d="M16 7h6v6" />
                                         <path d="m22 7-8.5 8.5-5-5L2 17" />
@@ -102,7 +102,7 @@
                         <div class="card month-total">
                             <div class="row-1">
                                 <p>Month total</p>
-                                <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign">
@@ -113,8 +113,16 @@
                             </div>
                             <div class="row-2">
                                 <p class="indicator-order">25410</p>
-                                <p class="chance-order trending-up">0.2% <span
-                                        style="color: black; opacity: 0.4; font-size: 8px;">since last month</span></p>
+                                <p class="chance-order trending-down">
+                                    <svg class="trending-down" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-trending-down-icon lucide-trending-down">
+                                        <path d="M16 17h6v-6" />
+                                        <path d="m22 17-8.5-8.5-5 5L2 7" />
+                                    </svg>0.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                        month</span>
+                                </p>
 
                             </div>
                         </div>
@@ -133,10 +141,10 @@
                             </div>
                             <div class="row-2">
                                 <p class="indicator-order">35</p>
-                                <p class="chance-order">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
+                                <p class="chance-order trending-up">
+                                    <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-trending-up-icon lucide-trending-up">
                                         <path d="M16 7h6v6" />
                                         <path d="m22 7-8.5 8.5-5-5L2 17" />
@@ -158,14 +166,32 @@
                             </div>
                             <div class="row-2">
                                 <p class="indicator-order">1152</p>
-                                <p class="chance-order">8.2% <span
-                                        style="color: black; opacity: 0.4; font-size: 8px;">since last month</span></p>
+                                <p class="chance-order trending-down">
+                                    <svg class="trending-down" xmlns="http://www.w3.org/2000/svg" width="12"
+                                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-trending-down-icon lucide-trending-down">
+                                        <path d="M16 17h6v-6" />
+                                        <path d="m22 17-8.5-8.5-5 5L2 7" />
+                                    </svg>1.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                        month</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="card-heigth users">
-                            <p>Users</p>
+                            <div class="row-1">
+                                <p>Users</p>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-users">5.128</p>
+                                <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    month</span>
+                            </div>
+                            <div class="row-3">
+                                <p>tester</p>
+                            </div>
                         </div>
                         <div class="card-heigth subscriptions">
                             <p>Subscriptions</p>

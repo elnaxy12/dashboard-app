@@ -140,8 +140,14 @@ body {
     margin-right: 5px;
 }
 
-.wrapper .col .main-content .content .card .row-2 p.trending-up {
+.wrapper .col .main-content .content .card .row-2 p.trending-up,
+.wrapper .col .main-content .content .card .row-2 svg.trending-up {
     color: green;
+}
+
+.wrapper .col .main-content .content .card .row-2 p.trending-down,
+.wrapper .col .main-content .content .card .row-2 svg.trending-down {
+    color: red;
 }
 
 .wrapper .col .main-content .content .card-heigth {
@@ -151,6 +157,32 @@ body {
     height: 210px;
     background-color: white;
     border-radius: 15px;
+}
+
+
+.wrapper .col .main-content .content .col-3 .card-heigth {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.wrapper .col .main-content .content .col-3 .card-heigth .row-1 {
+    height: 45px;
+}
+
+.wrapper .col .main-content .content .col-3 .card-heigth .row-1 p {
+    margin-bottom: 5px;
+}
+
+.wrapper .col .main-content .content .col-3 .card-heigth .row-2 p {
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.wrapper .col .main-content .content .col-3 .card-heigth .row-2 span {
+    margin: 0px 20px 0px 20px;
+    font-weight: 600;
 }
 
 .wrapper .col .main-content .content .card p,
