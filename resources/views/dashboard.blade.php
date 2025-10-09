@@ -75,47 +75,92 @@
                 <div class="content">
                     <div class="col-1">
                         <div class="card orders">
-                            <p>Orders</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-square-round-corner-icon lucide-square-round-corner">
-                                <path d="M21 11a8 8 0 0 0-8-8" />
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                            </svg>
+                            <div class="row-1">
+                                <p>Orders</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-square-round-corner-icon lucide-square-round-corner">
+                                    <path d="M21 11a8 8 0 0 0-8-8" />
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                </svg>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-order">201</p>
+                                <p class="chance-order">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-trending-up-icon lucide-trending-up">
+                                        <path d="M16 7h6v6" />
+                                        <path d="m22 7-8.5 8.5-5-5L2 17" />
+                                    </svg>8.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                        month</span>
+                                </p>
+                            </div>
                         </div>
                         <div class="card month-total">
-                            <p>Month total</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                                <path d="M12 18V6" />
-                            </svg>
+                            <div class="row-1">
+                                <p>Month total</p>
+                                <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-circle-dollar-sign-icon lucide-circle-dollar-sign">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                                    <path d="M12 18V6" />
+                                </svg>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-order">25410</p>
+                                <p class="chance-order trending-up">0.2% <span
+                                        style="color: black; opacity: 0.4; font-size: 8px;">since last month</span></p>
+
+                            </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card approved">
-                            <p>Approved</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-square-check-big-icon lucide-square-check-big">
-                                <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
-                                <path d="m9 11 3 3L22 4" />
-                            </svg>
+                            <div class="row-1">
+                                <p>Approved</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-square-check-big-icon lucide-square-check-big">
+                                    <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
+                                    <path d="m9 11 3 3L22 4" />
+                                </svg>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-order">35</p>
+                                <p class="chance-order">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-trending-up-icon lucide-trending-up">
+                                        <path d="M16 7h6v6" />
+                                        <path d="m22 7-8.5 8.5-5-5L2 17" />
+                                    </svg>3.4% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                        month</span>
+                                </p>
+                            </div>
                         </div>
                         <div class="card revenue">
-                            <p>Revenue</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-credit-card-icon lucide-credit-card">
-                                <rect width="20" height="14" x="2" y="5" rx="2" />
-                                <line x1="2" x2="22" y1="10" y2="10" />
-                            </svg>
+                            <div class="row-1">
+                                <p>Revenue</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-credit-card-icon lucide-credit-card">
+                                    <rect width="20" height="14" x="2" y="5" rx="2" />
+                                    <line x1="2" x2="22" y1="10" y2="10" />
+                                </svg>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-order">1152</p>
+                                <p class="chance-order">8.2% <span
+                                        style="color: black; opacity: 0.4; font-size: 8px;">since last month</span></p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-3">

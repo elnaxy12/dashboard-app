@@ -108,12 +108,40 @@ body {
 }
 
 .wrapper .col .main-content .content .card {
-    display: flex;
-    justify-content: space-between;
     width: 200px;
     height: 100px;
     background-color: white;
     border-radius: 15px;
+}
+
+.wrapper .col .main-content .content .card .row-1 {
+    display: flex;
+    justify-content: space-between;
+    height: 42px;
+}
+
+.wrapper .col .main-content .content .card .row-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .col .main-content .content .card .row-2 p.indicator-order {
+    font-size: 25px;
+    margin: 0 20px 0 20px;
+}
+
+.wrapper .col .main-content .content .card .row-2 p.chance-order {
+    margin: 7px 20px 0 20px;
+    font-size: 12px;
+}
+
+.wrapper .col .main-content .content .card .row-2 p.chance-order svg {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.wrapper .col .main-content .content .card .row-2 p.trending-up {
+    color: green;
 }
 
 .wrapper .col .main-content .content .card-heigth {
