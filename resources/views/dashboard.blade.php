@@ -194,7 +194,17 @@
                             </div>
                         </div>
                         <div class="card-heigth subscriptions">
-                            <p>Subscriptions</p>
+                            <div class="row-1">
+                                <p>Subscriptions</p>
+                            </div>
+                            <div class="row-2">
+                                <p class="indicator-users">1.201</p>
+                                <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    month</span>
+                            </div>
+                            <div class="row-3">
+                                <p>tester</p>
+                            </div>
                         </div>
                     </div>
                 </div>
