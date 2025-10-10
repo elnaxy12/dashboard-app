@@ -1,5 +1,8 @@
 import Chart from "chart.js/auto";
 
+// ===============================
+// 🔹 Donut Chart with HTML Legend
+// ===============================
 const htmlLegendPlugin = {
     id: "htmlLegend",
     afterUpdate(chart, args, options) {
@@ -16,13 +19,18 @@ const htmlLegendPlugin = {
             list.firstChild.remove();
         }
 
+        const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
         const items = chart.options.plugins.legend.labels.generateLabels(chart);
-        items.forEach((item) => {
+
+        items.forEach((item, index) => {
             const li = document.createElement("li");
             const box = document.createElement("span");
             box.style.background = item.fillStyle;
 
-            const text = document.createTextNode(item.text);
+            const value = chart.data.datasets[0].data[index];
+            const percent = ((value / total) * 100).toFixed(1);
+            const text = document.createTextNode(`${item.text} ${percent}%`);
+
             li.appendChild(box);
             li.appendChild(text);
 
@@ -36,7 +44,13 @@ const htmlLegendPlugin = {
     },
 };
 
-function createDonutChart(canvasId, legendId, data, colors, cutout = "60%") {
+function createDonutChartWithLegend(
+    canvasId,
+    legendId,
+    data,
+    colors,
+    cutout = "60%"
+) {
     const ctx = document.getElementById(canvasId);
     const legendContainer = document.getElementById(legendId);
 
@@ -64,6 +78,23 @@ function createDonutChart(canvasId, legendId, data, colors, cutout = "60%") {
                     htmlLegend: {
                         containerID: legendId,
                     },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const dataset = context.dataset.data;
+                                const total = dataset.reduce(
+                                    (a, b) => a + b,
+                                    0
+                                );
+                                const value = dataset[context.dataIndex];
+                                const percentage = (
+                                    (value / total) *
+                                    100
+                                ).toFixed(1);
+                                return `${context.label}: ${percentage}%`;
+                            },
+                        },
+                    },
                 },
             },
             plugins: [htmlLegendPlugin],
@@ -71,19 +102,67 @@ function createDonutChart(canvasId, legendId, data, colors, cutout = "60%") {
     }
 }
 
+// ===============================
+// 🔹 Donut Chart with Center Text
+// ===============================
+function createDonutChartWithText(canvasId, progress, colors) {
+    const ctx = document.getElementById(canvasId).getContext("2d");
+
+    const centerText = {
+        id: "centerText",
+        afterDraw(chart) {
+            const {
+                ctx,
+                chartArea: { width, height },
+            } = chart;
+            ctx.save();
+            ctx.font = "600 12px sans-serif";
+            ctx.fillStyle = "#333";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(`+${progress}%`, width / 2, height / 2);
+        },
+    };
+
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Progress", "Sisa"],
+            datasets: [
+                {
+                    data: [progress, 100 - progress],
+                    backgroundColor: colors,
+                    borderWidth: 0,
+                },
+            ],
+        },
+        options: {
+            cutout: "75%",
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: false },
+            },
+        },
+        plugins: [centerText],
+    });
+}
+
+// ===============================
+// 🔹 Init All Charts
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
-    createDonutChart(
+    createDonutChartWithLegend(
         "donutChartUsers",
         "legend-container-users",
         {
-            labels: ["New", "Returning", "Inactive"],
+            labels: ["New", "Return", "Inactive"],
             values: [62, 26, 12],
         },
         ["#9B5DE0", "#D78FEE", "#FDCFFA"],
         "60%"
     );
 
-    createDonutChart(
+    createDonutChartWithLegend(
         "donutChartSubscriptions",
         "legend-container-subscriptions",
         {
@@ -93,4 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ["#8FA31E", "#C6D870"],
         "60%"
     );
+
+    createDonutChartWithText("donutChartInvoices", 12, ["#DC143C", "#F7CAC9"]);
+    createDonutChartWithText("donutChartReceived", 59, ["#4CAF50", "#C8E6C9"]);
 });

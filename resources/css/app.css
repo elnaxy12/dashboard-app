@@ -378,6 +378,36 @@ body {
     .col-2
     .row-1
     .card
+    .row-1
+    .chart-container-invoices {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    margin: 20px auto auto;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-1
+    .card
+    .row-1
+    .chart-container-received {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    margin: 20px auto auto;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-1
+    .card
     .row-2
     p.title-invoice {
     margin: 0 20px 5px 20px;
