@@ -8,6 +8,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -190,7 +191,14 @@
                                     month</span>
                             </div>
                             <div class="row-3">
-                                <p>tester</p>
+                                <div class="chart-wrapper users-chart">
+                                    <div class="col-1">
+                                        <div id="legend-container-users"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <canvas id="donutChartUsers"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-heigth subscriptions">
@@ -203,7 +211,14 @@
                                     month</span>
                             </div>
                             <div class="row-3">
-                                <p>tester</p>
+                                <div class="chart-wrapper subscriptions-chart">
+                                    <div class="col-1">
+                                        <div id="legend-container-subscriptions"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <canvas id="donutChartSubscriptions"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -236,28 +251,44 @@
                     <div class="col-2">
                         <div class="row-1">
                             <div class="card paid-invoice">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-wallet-icon lucide-wallet">
-                                    <path
-                                        d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
-                                    <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
-                                </svg>
+                                <div class="row-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-wallet-icon lucide-wallet">
+                                        <path
+                                            d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+                                    </svg>
 
+                                </div>
+                                <div class="row-2">
+                                    <p class="title-invoice">Paid Invoice</p>
+                                    <p class="indicator-invoice">$30256.23</p>
+                                    <span style="margin: 0px 20px 0px 20px; font-size: 10px; opacity: 0.7;">Current
+                                        Finance Year</span>
+                                </div>
                             </div>
                             <div class="card funds-received">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-banknote-arrow-up-icon lucide-banknote-arrow-up">
-                                    <path d="M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5" />
-                                    <path d="M18 12h.01" />
-                                    <path d="M19 22v-6" />
-                                    <path d="m22 19-3-3-3 3" />
-                                    <path d="M6 12h.01" />
-                                    <circle cx="12" cy="12" r="2" />
-                                </svg>
+                                <div class="row-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-banknote-arrow-up-icon lucide-banknote-arrow-up">
+                                        <path d="M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5" />
+                                        <path d="M18 12h.01" />
+                                        <path d="M19 22v-6" />
+                                        <path d="m22 19-3-3-3 3" />
+                                        <path d="M6 12h.01" />
+                                        <circle cx="12" cy="12" r="2" />
+                                    </svg>
+                                </div>
+                                <div class="row-2">
+                                    <p class="title-invoice">Funds Received</p>
+                                    <p class="indicator-invoice">$150256.23</p>
+                                    <span style="margin: 0px 20px 0px 20px; font-size: 10px; opacity: 0.7;">Current
+                                        Finance Year</span>
+                                </div>
                             </div>
                         </div>
                         <div class="row-2">

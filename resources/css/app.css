@@ -64,12 +64,20 @@ body {
 
 .wrapper .col .side-bar-left .col-2 p:hover,
 .wrapper .col .side-bar-left .col-3 p:hover {
-    background: linear-gradient(to left, rgb(253, 207, 250, 0.01),rgb(253, 207, 250, 0.2));
+    background: linear-gradient(
+        to left,
+        rgb(253, 207, 250, 0.01),
+        rgb(253, 207, 250, 0.2)
+    );
 }
 
 .wrapper .col .main-content {
     width: 100%;
-    background: linear-gradient(to top, rgb(215, 143, 238, 0.01), rgb(253, 207, 250, 0.5));
+    background: linear-gradient(
+        to top,
+        rgb(215, 143, 238, 0.01),
+        rgb(253, 207, 250, 0.5)
+    );
     padding-left: 5pc;
     display: flex;
     flex-direction: column;
@@ -79,7 +87,7 @@ body {
 .wrapper .col .main-content .tab-content p {
     font-weight: 600;
     font-size: 24px;
-    color: #4E56C0;
+    color: #4e56c0;
 }
 
 .wrapper .col .main-content .content {
@@ -109,7 +117,7 @@ body {
 
 .wrapper .col .main-content .content .card {
     width: 200px;
-    height: 100px;
+    height: 110px;
     background-color: white;
     border-radius: 15px;
 }
@@ -154,11 +162,10 @@ body {
     display: flex;
     justify-content: space-between;
     width: 200px;
-    height: 210px;
+    height: 230px;
     background-color: white;
     border-radius: 15px;
 }
-
 
 .wrapper .col .main-content .content .col-3 .card-heigth {
     display: flex;
@@ -185,6 +192,126 @@ body {
     font-weight: 600;
 }
 
+.wrapper .col .main-content .content .col-3 .card-heigth .row-3 .chart-wrapper {
+    display: flex;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-2
+    canvas {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-users
+    ul,
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-subscriptions
+    ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-users
+    li,
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-subscriptions
+    li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 8px;
+}
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-users
+    li
+    span,
+.wrapper
+    .col
+    .main-content
+    .content
+    .col-3
+    .card-heigth
+    .row-3
+    .chart-wrapper
+    .col-1
+    #legend-container-subscriptions
+    li
+    span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
 .wrapper .col .main-content .content .card p,
 .wrapper .col .main-content .content .card-heigth p,
 .wrapper .col .main-content .mid-content .col-1 .card-width p,
@@ -197,7 +324,7 @@ body {
 
 .wrapper .col .main-content .content .card svg {
     margin: 20px;
-    color: #4E56C0;
+    color: #4e56c0;
 }
 
 .wrapper .col .main-content .mid-content .col-1 .card-width,
@@ -244,7 +371,36 @@ body {
     border-radius: 15px;
 }
 
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-1
+    .card
+    .row-2
+    p.title-invoice {
+    margin: 0 20px 5px 20px;
+    font-size: 12px;
+    font-weight: 100;
+    opacity: 0.7;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-1
+    .card
+    .row-2
+    p.indicator-invoice {
+    margin: 0 20px 0 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
 .wrapper .col .main-content .mid-content .col-2 .row-1 .card svg {
     margin: 20px;
-    color: #4E56C0;
+    color: #4e56c0;
 }
