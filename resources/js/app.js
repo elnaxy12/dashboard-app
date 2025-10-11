@@ -177,7 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     createDonutChartWithText("donutChartReceived", 59, ["#4CAF50", "#C8E6C9"]);
 });
 
-//
+// ===============================
+// 🔹 Bar Chart with HTML Legend
+// ===============================
 
 // ===== DATA =====
 const dataByYear = {
@@ -251,7 +253,8 @@ let chart = new Chart(ctx, {
             {
                 data: dataByYear["2024"], // default
                 backgroundColor: "#0066ff",
-                barThickness: 16,
+                barThickness: 8,
+                borderRadius: 8,
             },
         ],
     },
@@ -261,7 +264,7 @@ let chart = new Chart(ctx, {
         plugins: {
             legend: { display: false },
             tooltip: {
-                backgroundColor: "#0066ff",
+                backgroundColor: "default",
                 titleColor: "#fff",
                 bodyColor: "#fff",
                 callbacks: {

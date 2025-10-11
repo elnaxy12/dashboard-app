@@ -466,7 +466,7 @@ body {
     .chart-wrapper.sales-dynamics
     canvas {
     width: 380px !important;
-    height: 120px !important;
+    height: 135px !important;
 }
 
 .wrapper .col .main-content .mid-content {
