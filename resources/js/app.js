@@ -176,3 +176,183 @@ document.addEventListener("DOMContentLoaded", () => {
     createDonutChartWithText("donutChartInvoices", 12, ["#DC143C", "#F7CAC9"]);
     createDonutChartWithText("donutChartReceived", 59, ["#4CAF50", "#C8E6C9"]);
 });
+
+//
+
+// ===== DATA =====
+const dataByYear = {
+    2023: [200, 150, 250, 230, 280, 220, 140, 90, 210, 260, 320, 400],
+    2024: [180, 190, 230, 260, 290, 270, 150, 100, 200, 310, 350, 420],
+    2025: [210, 240, 280, 300, 310, 290, 200, 120, 240, 330, 360, 430],
+};
+
+const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+];
+
+// ===== CHART PLUGIN ROUND CORNERS =====
+const roundCorners = {
+    id: "roundCorners",
+    afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        chart.getDatasetMeta(0).data.forEach((bar) => {
+            const { x, y, base } = bar;
+            const width = bar.width;
+            const radius = 8;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.fillStyle = bar.options.backgroundColor;
+
+            ctx.moveTo(x - width / 2 + radius, base);
+            ctx.lineTo(x + width / 2 - radius, base);
+            ctx.quadraticCurveTo(
+                x + width / 2,
+                base,
+                x + width / 2,
+                base - radius
+            );
+            ctx.lineTo(x + width / 2, y + radius);
+            ctx.quadraticCurveTo(x + width / 2, y, x + width / 2 - radius, y);
+            ctx.lineTo(x - width / 2 + radius, y);
+            ctx.quadraticCurveTo(x - width / 2, y, x - width / 2, y + radius);
+            ctx.lineTo(x - width / 2, base - radius);
+            ctx.quadraticCurveTo(
+                x - width / 2,
+                base,
+                x - width / 2 + radius,
+                base
+            );
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        });
+    },
+};
+
+// ===== INIT CHART =====
+const ctx = document.getElementById("salesDynamicsChart").getContext("2d");
+let chart = new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: months,
+        datasets: [
+            {
+                data: dataByYear["2024"], // default
+                backgroundColor: "#0066ff",
+                barThickness: 16,
+            },
+        ],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: "#0066ff",
+                titleColor: "#fff",
+                bodyColor: "#fff",
+                callbacks: {
+                    label: (context) => `Sales: ${context.formattedValue}k`,
+                },
+            },
+        },
+        scales: {
+            x: {
+                grid: { display: false, drawBorder: false },
+                border: { display: false },
+                ticks: { color: "#bbb", font: { size: 11, weight: 500 } },
+            },
+            y: {
+                min: 0,
+                max: 500,
+                ticks: {
+                    stepSize: 100,
+                    color: "#bbb",
+                    font: { size: 10 },
+                    callback: (value) => `${value}k`,
+                },
+                grid: { display: false, drawBorder: false },
+                border: { display: false },
+            },
+        },
+    },
+    plugins: [roundCorners],
+});
+
+// ===== DROPDOWN CUSTOM =====
+const dropdown = document.getElementById("SalesdynamicsSelect");
+const selected = dropdown.querySelector(".selected");
+const items = dropdown.querySelectorAll(".dropdown-items div");
+
+// Klik untuk buka/tutup dropdown
+selected.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+
+    // Update SVG panah sesuai status
+    if (dropdown.classList.contains("open")) {
+        selected.innerHTML = `${selected.textContent.trim().split("\n")[0]}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-up-icon lucide-chevron-up">
+                <path d="m18 15-6-6-6 6" />
+            </svg>`;
+    } else {
+        selected.innerHTML = `${selected.textContent.trim().split("\n")[0]}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                <path d="m6 9 6 6 6-6" />
+            </svg>`;
+    }
+});
+
+// Pilih item dropdown
+items.forEach((item) => {
+    item.addEventListener("click", () => {
+        const year = item.getAttribute("data-value");
+        selected.innerHTML = `${year}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                <path d="m6 9 6 6 6-6" />
+            </svg>`;
+
+        // Update chart
+        chart.data.datasets[0].data = dataByYear[year];
+        chart.update();
+
+        dropdown.classList.remove("open");
+    });
+});
+
+// Tutup dropdown jika klik di luar
+window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+
+        // reset panah ke bawah
+        selected.innerHTML = `${selected.textContent.trim().split("\n")[0]}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                <path d="m6 9 6 6 6-6" />
+            </svg>`;
+    }
+});

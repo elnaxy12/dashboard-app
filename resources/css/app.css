@@ -334,7 +334,139 @@ body {
     height: 200px;
     border-radius: 15px;
     display: flex;
+    flex-direction: column;
+}
+
+.wrapper .col .main-content .mid-content .col-1 .card-width .row-1 {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown {
+    height: 20px;
+    border: none;
+    margin: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown
+    .selected {
+    margin-bottom: 5px;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown
+    .dropdown-items {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 10;
+    padding: 5px;
+    transition: max-height 0.2s ease;
+    opacity: 0;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown.open
+    .dropdown-items {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    opacity: 1;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown.open
+    .dropdown-items
+    div {
+    margin-bottom: 5px;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown.open
+    .dropdown-items
+    div:hover {
+    opacity: 0.8;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown
+    div {
+    border: none;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-2
+    .chart-wrapper.sales-dynamics {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-2
+    .chart-wrapper.sales-dynamics
+    canvas {
+    width: 380px !important;
+    height: 120px !important;
 }
 
 .wrapper .col .main-content .mid-content {
@@ -347,10 +479,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.wrapper .col .main-content .mid-content .col-1 .card-width p {
-    cursor: pointer;
 }
 
 .wrapper .col .main-content .mid-content .col-2 {
