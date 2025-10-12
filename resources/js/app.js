@@ -359,3 +359,150 @@ window.addEventListener("click", (e) => {
             </svg>`;
     }
 });
+
+// ===============================
+// 🔹 Line Chart with HTML Legend
+// ===============================
+
+// ===== DATA =====
+const salesLineDataByYear = {
+    2023: [200, 150, 250, 230, 280, 220, 140, 90, 210, 260, 320, 400],
+    2024: [180, 190, 230, 260, 290, 270, 150, 100, 200, 310, 350, 420],
+    2025: [210, 240, 280, 300, 310, 290, 200, 120, 240, 330, 360, 430],
+};
+
+const salesLineMonths = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+];
+
+// ===== INIT LINE CHART =====
+const salesLineCtx = document.getElementById("salesLineChart").getContext("2d");
+let salesLineChart = new Chart(salesLineCtx, {
+    type: "line",
+    data: {
+        labels: salesLineMonths,
+        datasets: [
+            {
+                label: "Sales (Line)",
+                data: salesLineDataByYear["2024"], 
+                borderColor: "#00aaff",
+                backgroundColor: "white",
+                borderWidth: 2,
+                tension: 0.4, 
+                pointBackgroundColor: "#fff",
+                pointBorderColor: "#00aaff",
+                pointRadius: 0,
+                pointHoverRadius: 0,
+                fill: true,
+            },
+        ],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: "default",
+                titleColor: "#fff",
+                bodyColor: "#fff",
+                callbacks: {
+                    label: (context) => `Sales: ${context.formattedValue}k`,
+                },
+            },
+        },
+        scales: {
+            x: {
+                grid: { display: false, drawBorder: false },
+                border: { display: false },
+                ticks: { color: "#bbb", font: { size: 11, weight: 500 } },
+            },
+            y: {
+                min: 0,
+                max: 500,
+                ticks: {
+                    stepSize: 100,
+                    color: "#bbb",
+                    font: { size: 10 },
+                    callback: (value) => `${value}k`,
+                },
+                grid: { display: false, drawBorder: false },
+                border: { display: false },
+            },
+        },
+    },
+});
+
+// ===== DROPDOWN CUSTOM (KHUSUS LINE CHART) =====
+const salesLineDropdown = document.getElementById("SalesLineSelect");
+const salesLineSelected = salesLineDropdown.querySelector(".selected");
+const salesLineItems = salesLineDropdown.querySelectorAll(
+    ".dropdown-items div"
+);
+
+// Klik untuk buka/tutup dropdown
+salesLineSelected.addEventListener("click", () => {
+    salesLineDropdown.classList.toggle("open");
+
+    const iconUp = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>`;
+    const iconDown = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6" />
+        </svg>`;
+
+    salesLineSelected.innerHTML = salesLineDropdown.classList.contains("open")
+        ? `${salesLineSelected.textContent.trim().split("\n")[0]} ${iconUp}`
+        : `${salesLineSelected.textContent.trim().split("\n")[0]} ${iconDown}`;
+});
+
+// Pilih item dropdown
+salesLineItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        const year = item.getAttribute("data-value");
+        salesLineSelected.innerHTML = `${year}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>`;
+
+        // Update chart data
+        salesLineChart.data.datasets[0].data = salesLineDataByYear[year];
+        salesLineChart.update();
+
+        salesLineDropdown.classList.remove("open");
+    });
+});
+
+// Tutup dropdown jika klik di luar
+window.addEventListener("click", (e) => {
+    if (!salesLineDropdown.contains(e.target)) {
+        salesLineDropdown.classList.remove("open");
+        salesLineSelected.innerHTML = `${
+            salesLineSelected.textContent.trim().split("\n")[0]
+        }
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>`;
+    }
+});

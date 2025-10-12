@@ -254,15 +254,29 @@
                             </div>
                         </div>
                         <div class="card-width user-activity">
-                            <p>Overall User Activity</p>
-                            <p>2021
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                            </p>
+                            <div class="row-1">
+                                <p>Overall User Activity</p>
+                                <div class="select-dropdown" id="SalesLineSelect">
+                                    <div class="selected">2024
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </div>
+                                    <div class="dropdown-items">
+                                        <div data-value="2023">2023</div>
+                                        <div data-value="2024">2024</div>
+                                        <div style="margin: 0" data-value="2025">2025</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-2">
+                                <div class="chart-wrapper sales-dynamics">
+                                    <canvas id="salesLineChart"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-2">
