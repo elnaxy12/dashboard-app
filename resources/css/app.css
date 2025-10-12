@@ -357,6 +357,10 @@ body {
     cursor: pointer;
     font-size: 12px;
     font-weight: 600;
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
 }
 
 .wrapper

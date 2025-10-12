@@ -7,6 +7,7 @@
     <title>Dashboard - App Business</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/animate.js'])
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -89,7 +90,7 @@
                                 </svg>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-order">201</p>
+                                <p class="animate-number-plain indicator-order" data-target="201">0</p>
                                 <p class="chance-order trending-up">
                                     <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="12"
                                         height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -115,7 +116,7 @@
                                 </svg>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-order">25410</p>
+                                <p class="animate-number-plain indicator-order" data-target="25410">0</p>
                                 <p class="chance-order trending-down">
                                     <svg class="trending-down" xmlns="http://www.w3.org/2000/svg" width="12"
                                         height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -143,7 +144,7 @@
                                 </svg>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-order">35</p>
+                                <p class="animate-number-plain indicator-order"data-target="35">0</p>
                                 <p class="chance-order trending-up">
                                     <svg class="trending-up" xmlns="http://www.w3.org/2000/svg" width="12"
                                         height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -168,7 +169,7 @@
                                 </svg>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-order">1152</p>
+                                <p class="animate-number-plain indicator-order" data-target="1152">0</p>
                                 <p class="chance-order trending-down">
                                     <svg class="trending-down" xmlns="http://www.w3.org/2000/svg" width="12"
                                         height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -188,7 +189,7 @@
                                 <p>Users</p>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-users">5.128</p>
+                                <p class="animate-number indicator-users" data-target="5128">0</p>
                                 <span style="color: black; opacity: 0.4; font-size: 8px;">since last
                                     month</span>
                             </div>
@@ -208,7 +209,7 @@
                                 <p>Subscriptions</p>
                             </div>
                             <div class="row-2">
-                                <p class="indicator-users">1.201</p>
+                                <p class="animate-number indicator-users" data-target="1201">0</p>
                                 <span style="color: black; opacity: 0.4; font-size: 8px;">since last
                                     month</span>
                             </div>
@@ -282,7 +283,7 @@
                                 </div>
                                 <div class="row-2">
                                     <p class="title-invoice">Paid Invoice</p>
-                                    <p class="indicator-invoice">$30256.23</p>
+                                    <p class="animate-number-amount indicator-invoice" data-target="30256">$0</p>
                                     <span style="margin: 0px 20px 0px 20px; font-size: 10px; opacity: 0.7;">Current
                                         Finance Year</span>
                                 </div>
@@ -306,7 +307,7 @@
                                 </div>
                                 <div class="row-2">
                                     <p class="title-invoice">Funds Received</p>
-                                    <p class="indicator-invoice">$150256.23</p>
+                                    <p class="animate-number-amount indicator-invoice" data-target="150256">$0</p>
                                     <span style="margin: 0px 20px 0px 20px; font-size: 10px; opacity: 0.7;">Current
                                         Finance Year</span>
                                 </div>
