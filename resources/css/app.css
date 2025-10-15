@@ -585,6 +585,33 @@ body {
     width: 100%;
 }
 
+.wrapper .col .main-content .mid-content .col-2 .row-2 .card-width .row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .col .main-content .mid-content .col-2 .row-2 .card-width .row-1 svg {
+    margin: 20px;
+    color: #4e56c0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-2
+    .card-width
+    .row-2
+    .table-header-container {
+    margin: 20px 0px 20px 0px;
+}
+
 .wrapper
     .col
     .main-content
@@ -596,7 +623,8 @@ body {
     .table-grid-5 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: var(--gap);
+    transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 .wrapper
@@ -621,6 +649,7 @@ body {
     .row-2
     .card-width
     .row-2
+    .table-grid-5
     .table-item {
     display: flex;
     margin: 10px 0;

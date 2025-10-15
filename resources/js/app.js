@@ -395,11 +395,11 @@ let salesLineChart = new Chart(salesLineCtx, {
         datasets: [
             {
                 label: "Sales (Line)",
-                data: salesLineDataByYear["2024"], 
+                data: salesLineDataByYear["2024"],
                 borderColor: "#00aaff",
                 backgroundColor: "white",
                 borderWidth: 2,
-                tension: 0.4, 
+                tension: 0.4,
                 pointBackgroundColor: "#fff",
                 pointBorderColor: "#00aaff",
                 pointRadius: 0,
@@ -505,4 +505,150 @@ window.addEventListener("click", (e) => {
                 <path d="m6 9 6 6 6-6" />
             </svg>`;
     }
+});
+
+//
+
+// ===============================
+// 🔹 Dynamic Status Badge Color
+// ===============================
+
+// === Pewarnaan baris sesuai status ===
+function colorizeRow(row, status) {
+    if (!row || !status) return;
+
+    const s = status.trim().toLowerCase();
+
+    row.style.color = "#000";
+    row.style.backgroundColor = "";
+
+    switch (s) {
+        case "shipped":
+            row.style.backgroundColor = "#e8f4fc"; 
+            break;
+        case "processing":
+            row.style.backgroundColor = "#fff8e1"; 
+            break;
+        case "delivered":
+            row.style.backgroundColor = "#e9f9ee"; 
+            break;
+        case "cancelled":
+            row.style.backgroundColor = "#fdecea";
+            break;
+        default:
+            row.style.backgroundColor = "#f5f5f5";
+    }
+
+    // Tambahan styling rapi
+    row.style.borderRadius = "8px";
+    row.style.transition = "background 0.4s ease";
+}
+
+// === Warna awal saat halaman dimuat ===
+document.querySelectorAll(".table-grid-5").forEach((row) => {
+    const statusEl = row.querySelector(".status");
+    if (statusEl) colorizeRow(row, statusEl.textContent);
+});
+
+// === Data unik tanpa duplikat ===
+const users = [
+    {
+        name: "John Doe",
+        address: "123 Main St",
+        date: "2023-01-01",
+        status: "Shipped",
+        price: "$100.00",
+    },
+    {
+        name: "Jane Smith",
+        address: "456 Oak Ave",
+        date: "2023-02-15",
+        status: "Processing",
+        price: "$75.50",
+    },
+    {
+        name: "Alice Johnson",
+        address: "789 Pine Rd",
+        date: "2023-03-10",
+        status: "Delivered",
+        price: "$50.00",
+    },
+    {
+        name: "Bob Brown",
+        address: "321 Maple St",
+        date: "2023-04-05",
+        status: "Cancelled",
+        price: "$0.00",
+    },
+    {
+        name: "Mark Lee",
+        address: "999 Sunset Blvd",
+        date: "2023-05-22",
+        status: "Processing",
+        price: "$210.00",
+    },
+    {
+        name: "Sophie Turner",
+        address: "777 River Rd",
+        date: "2023-06-17",
+        status: "Delivered",
+        price: "$180.25",
+    },
+    {
+        name: "Michael Chen",
+        address: "101 Hillview St",
+        date: "2023-07-09",
+        status: "Shipped",
+        price: "$135.00",
+    },
+    {
+        name: "Olivia Park",
+        address: "555 Forest Ln",
+        date: "2023-08-12",
+        status: "Cancelled",
+        price: "$0.00",
+    },
+    {
+        name: "Liam Evans",
+        address: "89 Seaside Ave",
+        date: "2023-09-23",
+        status: "Delivered",
+        price: "$95.75",
+    },
+    {
+        name: "Emma Davis",
+        address: "22 Orchard Blvd",
+        date: "2023-10-03",
+        status: "Processing",
+        price: "$120.50",
+    },
+];
+
+// === Event tombol randomize ===
+document.getElementById("randomizeBtn").addEventListener("click", () => {
+    const rows = document.querySelectorAll("#tableContainer .table-grid-5");
+    const usedIndexes = new Set();
+
+    rows.forEach((row) => {
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * users.length);
+        } while (
+            usedIndexes.has(randomIndex) &&
+            usedIndexes.size < users.length
+        );
+
+        usedIndexes.add(randomIndex);
+        const randomUser = users[randomIndex];
+
+        // isi data baru
+        row.querySelector(".name").textContent = randomUser.name;
+        row.querySelector(".address").textContent = randomUser.address;
+        row.querySelector(".date").textContent = randomUser.date;
+        row.querySelector(".status").textContent = randomUser.status;
+        row.querySelector(".price").textContent = randomUser.price;
+
+        // ubah warna baris
+        colorizeRow(row, randomUser.status);
+    });
 });
