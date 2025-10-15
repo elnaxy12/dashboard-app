@@ -541,7 +541,7 @@ function colorizeRow(row, status) {
 
     // Tambahan styling rapi
     row.style.borderRadius = "8px";
-    row.style.transition = "background 0.4s ease";
+    row.style.transition = "background 0.3s ease";
 }
 
 // === Warna awal saat halaman dimuat ===
