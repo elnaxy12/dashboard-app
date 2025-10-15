@@ -329,7 +329,97 @@
                         </div>
                         <div class="row-2">
                             <div class="card-width customes-order">
-                                <p>Customer order</p>
+                                <div class="row-1">
+                                    <p>Customer order</p>
+                                </div>
+                                <div class="row-2">
+                                    <div class="table-grid-5">
+                                        <div class="table-header">Profile</div>
+                                        <div class="table-header">Address</div>
+                                        <div class="table-header">Date</div>
+                                        <div class="table-header">Status</div>
+                                        <div class="table-header">Price</div>
+                                    </div>
+                                    <div class="table-grid-5">
+                                        <div class="table-item">
+                                            <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
+                                                alt="User" width="20" height="20">
+                                            <p>John Doe</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>123 Main St</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>2023-01-01</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>Shipped</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>$100.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="table-grid-5">
+                                        <div class="table-item">
+                                            <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
+                                                alt="User" width="20" height="20">
+
+                                            <p>Jane Smith</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>456 Oak Ave</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>2023-02-15</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>Processing</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>$75.50</p>
+                                        </div>
+                                    </div>
+                                    <div class="table-grid-5">
+                                        <div class="table-item">
+                                            <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
+                                                alt="User" width="20" height="20">
+
+                                            <p>Alice Johnson</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>789 Pine Rd</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>2023-03-10</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>Delivered</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>$50.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="table-grid-5">
+                                        <div class="table-item">
+                                            <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
+                                                alt="User" width="20" height="20">
+
+                                            <p>Bob Brown</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>321 Maple St</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>2023-04-05</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>Cancelled</p>
+                                        </div>
+                                        <div class="table-item">
+                                            <p>$0.00</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
