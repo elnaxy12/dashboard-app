@@ -651,7 +651,6 @@ body {
     .table-grid-5
     .table-item {
     display: flex;
-    margin: 10px 0;
     font-size: 10px;
     font-weight: 600;
     color: #44444e;
@@ -690,4 +689,18 @@ body {
     margin: 0;
     font-size: 10px;
     margin: auto;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-2
+    .row-2
+    .card-width
+    .row-2
+    .table-grid-5
+    .table-item
+    .address {
+    margin-left: 5px;
 }
