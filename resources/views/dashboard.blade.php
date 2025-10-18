@@ -75,6 +75,20 @@
             <div class="main-content">
                 <div class="tab-content">
                     <p>Analytics</p>
+                    <!-- From Uiverse.io by JustCode14 -->
+                    <label id="theme-toggle" class="switch">
+                        <input checked="true" id="checkbox" type="checkbox" />
+                        <span class="slider">
+                            <div class="star star_1"></div>
+                            <div class="star star_2"></div>
+                            <div class="star star_3"></div>
+                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff"
+                                    d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925">
+                                </path>
+                            </svg>
+                        </span>
+                    </label>
                 </div>
                 <div class="content">
                     <div class="col-1">
@@ -98,7 +112,7 @@
                                         class="lucide lucide-trending-up-icon lucide-trending-up">
                                         <path d="M16 7h6v6" />
                                         <path d="m22 7-8.5 8.5-5-5L2 17" />
-                                    </svg>8.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    </svg>8.2% <span style="opacity: 0.4; font-size: 8px;">since last
                                         month</span>
                                 </p>
                             </div>
@@ -124,7 +138,7 @@
                                         class="lucide lucide-trending-down-icon lucide-trending-down">
                                         <path d="M16 17h6v-6" />
                                         <path d="m22 17-8.5-8.5-5 5L2 7" />
-                                    </svg>0.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    </svg>0.2% <span style="opacity: 0.4; font-size: 8px;">since last
                                         month</span>
                                 </p>
 
@@ -152,7 +166,7 @@
                                         class="lucide lucide-trending-up-icon lucide-trending-up">
                                         <path d="M16 7h6v6" />
                                         <path d="m22 7-8.5 8.5-5-5L2 17" />
-                                    </svg>3.4% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    </svg>3.4% <span style="opacity: 0.4; font-size: 8px;">since last
                                         month</span>
                                 </p>
                             </div>
@@ -177,20 +191,20 @@
                                         class="lucide lucide-trending-down-icon lucide-trending-down">
                                         <path d="M16 17h6v-6" />
                                         <path d="m22 17-8.5-8.5-5 5L2 7" />
-                                    </svg>1.2% <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                    </svg>1.2% <span style="opacity: 0.4; font-size: 8px;">since last
                                         month</span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="card-heigth users">
+                        <div class="card-height users">
                             <div class="row-1">
                                 <p>Users</p>
                             </div>
                             <div class="row-2">
                                 <p class="animate-number indicator-users" data-target="5128">0</p>
-                                <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                <span style="opacity: 0.4; font-size: 8px;">since last
                                     month</span>
                             </div>
                             <div class="row-3">
@@ -204,13 +218,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-heigth subscriptions">
+                        <div class="card-height subscriptions">
                             <div class="row-1">
                                 <p>Subscriptions</p>
                             </div>
                             <div class="row-2">
                                 <p class="animate-number indicator-users" data-target="1201">0</p>
-                                <span style="color: black; opacity: 0.4; font-size: 8px;">since last
+                                <span style="opacity: 0.4; font-size: 8px;">since last
                                     month</span>
                             </div>
                             <div class="row-3">
@@ -331,9 +345,9 @@
                             <div class="card-width customes-order">
                                 <div class="row-1">
                                     <p>Customer order</p>
-                                    <svg id="randomizeBtn" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
+                                    <svg id="randomizeBtn" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-repeat2-icon lucide-repeat-2">
                                         <path d="m2 9 3-3 3 3" />
                                         <path d="M13 18H7a2 2 0 0 1-2-2V6" />
@@ -350,7 +364,7 @@
                                         <div class="table-header">Price</div>
                                     </div>
                                     <div id="tableContainer">
-                                        <div class="table-grid-5">
+                                        <div class="table-grid-5 table-items">
                                             <div class="table-item">
                                                 <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
                                                     alt="User" width="20" height="20">
@@ -369,7 +383,7 @@
                                                 <p class="price">$100.00</p>
                                             </div>
                                         </div>
-                                        <div class="table-grid-5">
+                                        <div class="table-grid-5 table-items">
                                             <div class="table-item">
                                                 <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
                                                     alt="User" width="20" height="20">
@@ -388,7 +402,7 @@
                                                 <p class="price">$75.50</p>
                                             </div>
                                         </div>
-                                        <div class="table-grid-5">
+                                        <div class="table-grid-5 table-items">
                                             <div class="table-item">
                                                 <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
                                                     alt="User" width="20" height="20">
@@ -407,7 +421,7 @@
                                                 <p class="price">$50.00</p>
                                             </div>
                                         </div>
-                                        <div class="table-grid-5">
+                                        <div class="table-grid-5 table-items">
                                             <div class="table-item">
                                                 <img src="{{ asset('images/profile-user/user-man-1.jpg') }}"
                                                     alt="User" width="20" height="20">

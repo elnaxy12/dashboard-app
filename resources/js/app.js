@@ -173,9 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "60%"
     );
 
+    
     createDonutChartWithText("donutChartInvoices", 12, ["#DC143C", "#F7CAC9"]);
     createDonutChartWithText("donutChartReceived", 59, ["#4CAF50", "#C8E6C9"]);
 });
+
+
 
 // ===============================
 // 🔹 Bar Chart with HTML Legend
@@ -397,7 +400,7 @@ let salesLineChart = new Chart(salesLineCtx, {
                 label: "Sales (Line)",
                 data: salesLineDataByYear["2024"],
                 borderColor: "#00aaff",
-                backgroundColor: "white",
+                backgroundColor: "transparent",
                 borderWidth: 2,
                 tension: 0.4,
                 pointBackgroundColor: "#fff",
@@ -524,13 +527,13 @@ function colorizeRow(row, status) {
 
     switch (s) {
         case "shipped":
-            row.style.backgroundColor = "#e8f4fc"; 
+            row.style.backgroundColor = "#e8f4fc";
             break;
         case "processing":
-            row.style.backgroundColor = "#fff8e1"; 
+            row.style.backgroundColor = "#fff8e1";
             break;
         case "delivered":
-            row.style.backgroundColor = "#e9f9ee"; 
+            row.style.backgroundColor = "#e9f9ee";
             break;
         case "cancelled":
             row.style.backgroundColor = "#fdecea";
@@ -651,4 +654,96 @@ document.getElementById("randomizeBtn").addEventListener("click", () => {
         // ubah warna baris
         colorizeRow(row, randomUser.status);
     });
+});
+
+//
+
+// ===============================
+// 🔹 Dark Mode Toggle
+// ===============================
+
+const checkbox = document.getElementById("checkbox");
+const body = document.body;
+
+const mainContent = document.querySelector(".wrapper .col .main-content");
+
+// Kartu dan elemen-elemen di dalamnya
+const cards1 = document.querySelectorAll(
+    ".wrapper .col .main-content .content .col-3 .card-height, \
+   .wrapper .col .main-content .col-3 .card-height .row-3 .chart-wrapper"
+);
+const cards2 = document.querySelectorAll(
+    ".wrapper .col .mid-content .col-1 .card-width, \
+   .wrapper .col .mid-content .col-2 .row-2 .card-width"
+);
+const cards3 = document.querySelectorAll(
+    ".wrapper .col .main-content .content .card, \
+   .wrapper .col .mid-content .card, \
+   .wrapper .col .mid-content .col-1 .card-width .row-1 .dropdown-items"
+);
+
+// Table
+const tables = document.querySelectorAll(".table-grid-5");
+
+// Elemen teks & ikon dalam card
+const icons = document.querySelectorAll(`
+  .wrapper .col .main-content .col-1 .card .row-1 svg,
+  .wrapper .col .main-content .col-2 .card .row-1 svg,
+  .wrapper .col .mid-content .col-2 .row-2 .card-width .row-1 svg
+`);
+
+const texts = document.querySelectorAll(`
+  .wrapper .col .main-content .col-1 .card.dark-mode .row-1 p,
+  .wrapper .col .main-content .col-2 .card.dark-mode .row-1 p,
+  .wrapper .col .main-content .col-1 .card .row-2 p,
+  .wrapper .col .main-content .col-2 .card .row-2 p,
+  .wrapper .col .mid-content .col-1 .card-width .row-1 p,
+  .wrapper .col .main-content .col-3 .card-height .row-1 p,
+  .wrapper .col .main-content .col-3 .card-height .row-2 p,
+  .wrapper .col .mid-content .col-2 .row-2 .card-width .row-1 p,
+  .wrapper .col .main-content .tab-content p
+`);
+
+const spans = document.querySelectorAll(`
+  .wrapper .col .main-content .col-1 .card .row-2 p span,
+  .wrapper .col .main-content .col-2 .card .row-2 p span
+`);
+
+function toggleDarkMode(active) {
+    if (active) {
+        body.classList.add("dark-mode");
+        mainContent?.classList.add("dark-mode");
+
+        [cards1, cards2, cards3, tables, icons, texts, spans].forEach((group) =>
+            group.forEach((el) => el.classList.add("dark-mode"))
+        );
+    } else {
+        body.classList.remove("dark-mode");
+        mainContent?.classList.remove("dark-mode");
+
+        [cards1, cards2, cards3, tables, icons, texts, spans].forEach((group) =>
+            group.forEach((el) => el.classList.remove("dark-mode"))
+        );
+    }
+}
+
+// Muat tema terakhir
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+    checkbox.checked = false;
+    toggleDarkMode(true);
+} else {
+    checkbox.checked = true;
+    toggleDarkMode(false);
+}
+
+// Toggle manual
+checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+        toggleDarkMode(false);
+        localStorage.setItem("theme", "light");
+    } else {
+        toggleDarkMode(true);
+        localStorage.setItem("theme", "dark");
+    }
 });
