@@ -5,6 +5,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #44444e;
     cursor: default;
+    transition: background-color 0.5s ease;
 }
 
 .wrapper {
@@ -62,6 +63,15 @@ body {
     border-radius: 50px;
 }
 
+.wrapper .col .side-bar-left .col-2 p.dark-mode:hover,
+.wrapper .col .side-bar-left .col-3 p.dark-mode:hover {
+    background: linear-gradient(
+        to left,
+        rgb(27, 60, 83), 
+        rgb(11, 30, 44)
+        );
+}
+
 .wrapper .col .side-bar-left .col-2 p:hover,
 .wrapper .col .side-bar-left .col-3 p:hover {
     background: linear-gradient(
@@ -83,17 +93,24 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    transition: background 0.5s ease;
 }
 
 body.dark-mode {
     background-color: #1b3c53;
     color: rgb(255, 255, 255);
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .wrapper .col .main-content.dark-mode {
     background: linear-gradient(to top, rgb(27, 60, 83), rgb(11, 30, 44));
     transition: background 0.5s ease;
+}
+
+.chart-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
 }
 
 .wrapper
@@ -117,12 +134,25 @@ body.dark-mode {
 .wrapper .col .mid-content .col-2 .row-1 .card.paid-invoice.dark-mode,
 .wrapper .col .mid-content .col-2 .row-1 .card.funds-received.dark-mode,
 .wrapper .col .mid-content .col-2 .row-2 .card-width.customes-order.dark-mode,
-.wrapper .col .mid-content .col-1 .card-width .row-1 #SalesdynamicsSelect .dropdown-items.dark-mode,
-.wrapper .col .mid-content .col-1 .card-width .row-1 #SalesLineSelect .dropdown-items.dark-mode {
-
+.wrapper
+    .col
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    #SalesdynamicsSelect
+    .dropdown-items.dark-mode,
+.wrapper
+    .col
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    #SalesLineSelect
+    .dropdown-items.dark-mode {
     color: white;
     background-color: rgb(33, 43, 52);
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Awalnya black -> diganti jadi white */
@@ -151,25 +181,31 @@ body.dark-mode {
 .wrapper .col .main-content .col-2 .card.dark-mode .row-2 p span.dark-mode,
 .wrapper .col .main-content .col-2 .card.dark-mode .row-1 svg.dark-mode,
 .wrapper .col .main-content .col-1 .card.dark-mode .row-1 svg.dark-mode,
-.wrapper .col .mid-content .col-2 .row-2 .card-width .row-1 svg.lucide.lucide-repeat2-icon.lucide-repeat-2.dark-mode,
+.wrapper
+    .col
+    .mid-content
+    .col-2
+    .row-2
+    .card-width
+    .row-1
+    svg.lucide.lucide-repeat2-icon.lucide-repeat-2.dark-mode,
 .wrapper .col .mid-content .col-1 .card-width .row-1 p.dark-mode,
 .wrapper .col .main-content .col-3 .card-height .row-1 p.dark-mode,
 .wrapper .col .main-content .col-3 .card-height .row-2 p.dark-mode,
 .wrapper .col .mid-content .col-2 .row-2 .card-width .row-1 p.dark-mode,
 .wrapper .col .main-content .tab-content p.dark-mode {
     color: white;
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: color 0.5s ease;
 }
 
-canvas.dark-mode {
-    color: white !important;
-    transition: color 0.3s ease;
+.dark-mode {
+    color: #fff !important;
 }
 
 .table-grid-5.table-items.dark-mode {
     background-color: rgb(33, 43, 52) !important;
     color: white !important;
-    transition: background 0.5s, color 0.5s;
+    transition: background-color 0.5s ease, color 0.5s ease !important;
 }
 
 .table-grid-5.dark-mode .name,
@@ -178,6 +214,7 @@ canvas.dark-mode {
 .table-grid-5.dark-mode .status,
 .table-grid-5.dark-mode .price {
     color: white !important;
+    transition: color 0.5s ease;
 }
 
 .wrapper .col .main-content .tab-content p {
@@ -216,6 +253,7 @@ canvas.dark-mode {
     height: 110px;
     background-color: white;
     border-radius: 15px;
+    transition: background-color 0.5s ease;
 }
 
 .wrapper .col .main-content .content .card .row-1 {
@@ -266,6 +304,7 @@ canvas.dark-mode {
     height: 230px;
     background-color: white;
     border-radius: 15px;
+    transition: background-color 0.5s ease;
 }
 
 .wrapper .col .main-content .content .col-3 .card-height {
@@ -299,6 +338,7 @@ canvas.dark-mode {
     border-radius: 16px;
     padding: 20px;
     justify-content: space-evenly;
+    transition: background 0.5s ease;
 }
 
 .wrapper
@@ -432,9 +472,11 @@ canvas.dark-mode {
 .wrapper .col .main-content .mid-content .col-2 .row-2 .card-width {
     background-color: white;
     width: 410px;
+    padding-bottom: 10px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.5s ease;
 }
 
 .wrapper .col .main-content .mid-content .col-1 .card-width .row-1 {
@@ -615,6 +657,7 @@ canvas.dark-mode {
     width: 200px;
     height: 150px;
     border-radius: 15px;
+    transition: background-color 0.5s ease;
 }
 
 .wrapper

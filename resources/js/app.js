@@ -106,21 +106,33 @@ function createDonutChartWithLegend(
 // 🔹 Donut Chart with Center Text
 // ===============================
 function createDonutChartWithText(canvasId, progress, colors) {
-    const ctx = document.getElementById(canvasId).getContext("2d");
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) {
+        console.warn(`Canvas dengan ID "${canvasId}" tidak ditemukan.`);
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
 
     const centerText = {
         id: "centerText",
         afterDraw(chart) {
-            const {
-                ctx,
-                chartArea: { width, height },
-            } = chart;
+            const { ctx, chartArea } = chart;
+            const { width, height, left, top } = chartArea;
+
             ctx.save();
             ctx.font = "600 12px sans-serif";
-            ctx.fillStyle = "#333";
+            ctx.fillStyle = document.body.classList.contains("dark-mode")
+                ? "#fff"
+                : "#333";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.fillText(`+${progress}%`, width / 2, height / 2);
+
+            const textX = left + width / 2;
+            const textY = top + height / 2;
+
+            ctx.fillText(`+${progress}%`, textX, textY);
+            ctx.restore();
         },
     };
 
@@ -173,12 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "60%"
     );
 
-    
     createDonutChartWithText("donutChartInvoices", 12, ["#DC143C", "#F7CAC9"]);
     createDonutChartWithText("donutChartReceived", 59, ["#4CAF50", "#C8E6C9"]);
 });
-
-
 
 // ===============================
 // 🔹 Bar Chart with HTML Legend
@@ -528,18 +537,23 @@ function colorizeRow(row, status) {
     switch (s) {
         case "shipped":
             row.style.backgroundColor = "#e8f4fc";
+            row.style.border = "1px solid #90caf9"; 
             break;
         case "processing":
             row.style.backgroundColor = "#fff8e1";
+            row.style.border = "1px solid #ffd54f"; 
             break;
         case "delivered":
             row.style.backgroundColor = "#e9f9ee";
+            row.style.border = "1px solid #81c784"; 
             break;
         case "cancelled":
             row.style.backgroundColor = "#fdecea";
+            row.style.border = "1px solid #e57373"; 
             break;
         default:
             row.style.backgroundColor = "#f5f5f5";
+            row.style.border = "1px solid #ccc"; 
     }
 
     // Tambahan styling rapi
@@ -701,7 +715,9 @@ const texts = document.querySelectorAll(`
   .wrapper .col .main-content .col-3 .card-height .row-1 p,
   .wrapper .col .main-content .col-3 .card-height .row-2 p,
   .wrapper .col .mid-content .col-2 .row-2 .card-width .row-1 p,
-  .wrapper .col .main-content .tab-content p
+  .wrapper .col .main-content .tab-content p,
+  .wrapper .col .side-bar-left .col-2 p,
+  .wrapper .col .side-bar-left .col-3 p
 `);
 
 const spans = document.querySelectorAll(`
@@ -709,25 +725,39 @@ const spans = document.querySelectorAll(`
   .wrapper .col .main-content .col-2 .card .row-2 p span
 `);
 
+let darkModeTimeout; // untuk mencegah timeout bertumpuk
+
 function toggleDarkMode(active) {
-    if (active) {
-        body.classList.add("dark-mode");
-        mainContent?.classList.add("dark-mode");
+    clearTimeout(darkModeTimeout);
 
-        [cards1, cards2, cards3, tables, icons, texts, spans].forEach((group) =>
-            group.forEach((el) => el.classList.add("dark-mode"))
+    darkModeTimeout = setTimeout(() => {
+        const body = document.body;
+        const mainContent = document.querySelector(
+            ".wrapper .col .main-content"
         );
-    } else {
-        body.classList.remove("dark-mode");
-        mainContent?.classList.remove("dark-mode");
 
-        [cards1, cards2, cards3, tables, icons, texts, spans].forEach((group) =>
-            group.forEach((el) => el.classList.remove("dark-mode"))
-        );
-    }
+        const groups = [cards1, cards2, cards3, tables, icons, texts, spans];
+
+        if (active) {
+            body.classList.add("dark-mode");
+            mainContent?.classList.add("dark-mode");
+            groups.forEach((group) =>
+                group.forEach((el) => el.classList.add("dark-mode"))
+            );
+        } else {
+            body.classList.remove("dark-mode");
+            mainContent?.classList.remove("dark-mode");
+            groups.forEach((group) =>
+                group.forEach((el) => el.classList.remove("dark-mode"))
+            );
+        }
+
+        if (typeof Chart !== "undefined" && Chart.instances) {
+            Object.values(Chart.instances).forEach((chart) => chart.update());
+        }
+    }, 200);
 }
 
-// Muat tema terakhir
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
     checkbox.checked = false;
@@ -737,7 +767,6 @@ if (savedTheme === "dark") {
     toggleDarkMode(false);
 }
 
-// Toggle manual
 checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
         toggleDarkMode(false);
