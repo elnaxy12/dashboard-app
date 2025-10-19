@@ -257,7 +257,7 @@
                                     <div class="dropdown-items">
                                         <div data-value="2023">2023</div>
                                         <div data-value="2024">2024</div>
-                                        <div style="margin: 0" data-value="2025">2025</div>
+                                        <div data-value="2025">2025</div>
                                     </div>
                                 </div>
                             </div>
@@ -449,7 +449,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

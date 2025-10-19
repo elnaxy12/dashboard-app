@@ -65,11 +65,7 @@ body {
 
 .wrapper .col .side-bar-left .col-2 p.dark-mode:hover,
 .wrapper .col .side-bar-left .col-3 p.dark-mode:hover {
-    background: linear-gradient(
-        to left,
-        rgb(27, 60, 83), 
-        rgb(11, 30, 44)
-        );
+    background: linear-gradient(to left, rgb(27, 60, 83), rgb(11, 30, 44));
 }
 
 .wrapper .col .side-bar-left .col-2 p:hover,
@@ -152,7 +148,7 @@ body.dark-mode {
     .dropdown-items.dark-mode {
     color: white;
     background-color: rgb(33, 43, 52);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 /* Awalnya black -> diganti jadi white */
@@ -547,7 +543,7 @@ body.dark-mode {
     border: 1px solid #ccc;
     z-index: 10;
     padding: 5px;
-    transition: max-height 0.2s ease;
+    transition: all 0.5s ease;
     opacity: 0;
 }
 
@@ -573,10 +569,28 @@ body.dark-mode {
     .col-1
     .card-width
     .row-1
-    .select-dropdown.open
+    .select-dropdown
     .dropdown-items
     div {
-    margin-bottom: 5px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper
+    .col
+    .main-content
+    .mid-content
+    .col-1
+    .card-width
+    .row-1
+    .select-dropdown
+    .dropdown-items
+    div
+    p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .wrapper
