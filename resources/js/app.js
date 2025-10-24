@@ -1,4 +1,5 @@
 import Chart from "chart.js/auto";
+import "./animate.js";
 
 // ===============================
 // 🔹 Donut Chart with HTML Legend
