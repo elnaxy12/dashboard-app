@@ -752,6 +752,7 @@ body.dark-mode {
     margin: 20px;
     color: #4e56c0;
     cursor: pointer;
+    user-select: none;
 }
 
 .wrapper
